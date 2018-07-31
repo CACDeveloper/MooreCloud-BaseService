@@ -6,6 +6,3 @@
         "zendframework/zend-http": "~2.3"
     }
 }
-$client = new Predis\Client();
-                $client->set($username, 'lalsdaldsjsad');
-                $return = $client->get($username);
