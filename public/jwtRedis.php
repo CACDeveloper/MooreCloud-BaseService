@@ -122,14 +122,14 @@ EOL;
                             );
                         
                         $client = new Predis\Client();
-                        $rlist = [$jwt,""];
+                        $rlist = ["jwt" => $jwt, "Mark" => ""];
                         $rlist = json_encode($rlist);
                         $client->set($username, $rlist);
 
                         $return = $client->get($username);
 
                         //echo $return;
-                        $unencodedArray = ['jwt' => $jwt];
+                        $unencodedArray = ['jwt' => $jwt, 'return' => $return];
                         echo json_encode($unencodedArray);
                     } else {
                         header('HTTP/1.0 401 Unauthorized');
