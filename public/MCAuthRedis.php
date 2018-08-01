@@ -88,7 +88,7 @@ EOL;
                             'exp'  => $expire,           // Expire
                             'data' => [                  // Data related to the signer user
                                 'userId'   => $rs['uid'], // userid from the users table
-                                'userName' => $username, // User name
+                                'userEmail' => $username, // User name
                             ],
                         ];
                         
@@ -127,7 +127,7 @@ EOL;
                         $client = new Predis\Client();
                         $rlist = ["jwt" => $jwt, "Mark" => ""];
                         $rlist = json_encode($rlist);
-                        $client->set($username, $rlist);
+                        $client->set($rs['uid'], $rlist);
 
                         $return = $client->get($username);
 
